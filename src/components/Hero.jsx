@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import profileImg from "../assets/IMG_20250928_163404.png";
-import { FaWordpress, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaDatabase, FaSearch, FaServer } from "react-icons/fa";
+import { FaWordpress, FaShoppingCart, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaDatabase, FaSearch, FaServer } from "react-icons/fa";
 
 
 
@@ -124,9 +124,13 @@ const Hero = () => {
       <span className="card-text">SEO & Google Analytics</span>
     </div>
 
-    <div className="card">
+    <div className="card"  >
       <FaServer size={30} />
       <span className="card-text">Domain & Hosting Manage</span>
+    </div>
+    <div className="card cardmove "  >
+      <FaShoppingCart size={30} />   
+      <span className="card-text">E-Commerce Websites</span>
     </div>
   </div>
 </section>

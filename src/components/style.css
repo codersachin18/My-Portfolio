@@ -281,13 +281,37 @@ nav a:hover {
 @media (max-width: 600px) {
   .hero-left .hero-title {
     font-size: 36px;
+    align-items: center;
+    text-align: center;
   }
   .hero-left .hero-desc {
     font-size: 16px;
+    align-items: center;
+    text-align: center;
   }
   .btn {
     font-size: 14px;
     padding: 10px 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+
+  }
+  .hero-content-wrapper{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  
+  .hero-cards .cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* first row: 3 cards */
+    grid-auto-rows: auto;
+    gap: 10px;
+    justify-items: center;
+    
   }
 }
 
@@ -327,14 +351,24 @@ nav a:hover {
     justify-items: center;
     
   }
+  @media (max-width: 768px) {
+  .hero-cards .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+     
+
+  
+}
 
   
 
   .hero-cards .card {
-    width: 120px; /* smaller cards */
+    width: 200px; /* smaller cards */
     padding: 10px;
     font-size: 0.85rem;
   }
+
+ 
 
   .hero-cards .card svg {
     width: 25px;
@@ -356,7 +390,7 @@ nav a:hover {
   }
 }
 
-
+ 
 .hero-cards {
   display: flex;
   justify-content: center;
@@ -394,6 +428,7 @@ nav a:hover {
   width: 30px;
   height: 30px;
 }
+ 
 
 .card-text {
   font-weight: 600;
@@ -439,6 +474,19 @@ nav a:hover {
   left: 0;
   z-index: 0;
 }
+.cardmove{
+  display: none;
+}
+ @media (max-width: 768px) {
+  
+    .cardmove{
+   display: block;
+  }
+
+  
+}
+
+ 
 
 .skills-wrapper {
   position: relative;
