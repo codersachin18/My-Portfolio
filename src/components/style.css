@@ -138,6 +138,7 @@ nav a:hover {
   border: 2px solid #38bdf8;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .btn1{
@@ -150,18 +151,26 @@ nav a:hover {
   font-size: 14px;
   transition: 0.3s;
   background: #38bdf8;
+    text-decoration: none;
+
 }
 .btn.primary {
   background: #38bdf8;
   color: #0f172a;
+    text-decoration: none;
+
 }
 .btn.primary:hover {
   background: transparent;
   color: #38bdf8;
+    
+
 }
 .btn.secondary {
   background: transparent;
   color: #38bdf8;
+    text-decoration: none;
+
 }
 .btn.secondary:hover {
   background: #38bdf8;
@@ -296,6 +305,8 @@ nav a:hover {
     text-align: center;
     justify-content: center;
     display: flex;
+      text-decoration: none;
+
 
   }
   .hero-content-wrapper{
