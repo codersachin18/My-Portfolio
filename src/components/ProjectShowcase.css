@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+
+
+/* Section Base */
+.project-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* Canvas Background */
+.bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(11, 18, 41, 0.6), rgba(2, 6, 23, 0.9));
+  z-index: 1;
+}
+
+/* Content Wrapper */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+.section-title span {
+  color: #3b82f6;
+}
+
+/* Grid Layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Card Styling */
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.project-img {
+  width: 100%;
+  height: 450px;          /* slightly taller for better view */
+  object-fit: fill;      /* ensures full coverage without stretching */
+  object-position: center; /* centers the image nicely */
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* Card Content */
+.project-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-info h3 {
+  color: #60a5fa;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.project-info p {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  flex-grow: 1;
+}
+
+/* Button */
+.project-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+.project-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
