@@ -116,6 +116,7 @@ nav a:hover {
 .hero-left .hero-title {
   font-size: 64px;
   margin-bottom: 20px;
+  font-weight:bold;
 }
 .hero-left .name {
   background: linear-gradient(90deg, #38bdf8, #6366f1, #f472b6);
@@ -155,6 +156,7 @@ nav a:hover {
   transition: 0.3s;
   background: #38bdf8;
     text-decoration: none;
+    color: black
 
 }
 .btn.primary {

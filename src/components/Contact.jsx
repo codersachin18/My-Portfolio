@@ -37,7 +37,7 @@ const Contact = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
+      particles.forEach((p) => {
         p.update();
         p.draw();
       });
@@ -53,17 +53,19 @@ const Contact = () => {
 
   return (
     <>
-    <section id="contact" className="contact-section">
-      <canvas ref={canvasRef}></canvas>
-      <div className="contact-container">
-        <div className="contact-left">
-          <h2>Get in Touch</h2>
-          <p>Feel free to reach out to me. I’d love to discuss your project!</p>
-          <p><strong>Email:</strong> sachinraj18sj@gmail.com</p>
+      <section id="contact" className="contact-section">
+        <canvas ref={canvasRef}></canvas>
+        <div className="contact-container">
+          <div className="contact-left">
+            <h2>Get in Touch</h2>
+            <p>
+              Feel free to reach out to me. I’d love to discuss your project!
+            </p>
+            <p>
+              <strong>Email:</strong> sachinraj18sj@gmail.com
+            </p>
 
-
-      
- <div className="social-links">
+            <div className="social-links">
               <a
                 href="https://github.com/codersachin18"
                 target="_blank"
@@ -95,24 +97,20 @@ const Contact = () => {
             </div>
           </div>
 
-
-        <div className="contact-right">
-          <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-          </form>
+          <div className="contact-right">
+            <form>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <textarea placeholder="Your Message" rows="5" required></textarea>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
         </div>
+      </section>
+      <div className="footer">
+        <p>© {new Date().getFullYear()} Developed by Sachin Jagtap</p>
       </div>
-      
-    </section>
-    <div className="footer">
-  <p>© {new Date().getFullYear()} Developed by Sachin Jagtap</p>
-</div>
-
-   </>
-    
+    </>
   );
 };
 
