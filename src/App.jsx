@@ -5,6 +5,8 @@ import Skills from "./components/Skills";
 import Solutions from "./components/Solutions";
 import Contact from "./components/Contact";
 import ProjectShowcase from "./components/ProjectShowcase";
+import SmokeyCursor from "./components/lightswind/smokey-cursor";
+
 import "./components/style.css";
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Solutions />
       <ProjectShowcase />
       <Contact />
+      <SmokeyCursor />
     </div>
   );
 }

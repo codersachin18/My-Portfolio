@@ -941,12 +941,18 @@ nav a:hover {
 
 .social-links {
   margin-top: 15px;
+  display: flex;            /* lay out icons in a row */
+  gap: 1rem;               /* spacing between icons */
+  align-items: center;
+  flex-wrap: wrap;         /* wrap to new line on small screens */
 }
 
 .social-links a {
   color: #38bdf8;
-  margin-right: 15px;
   font-size: 1.8rem;
+  display: inline-flex;    /* ensure anchor sizes to content */
+  align-items: center;
+  justify-content: center;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 

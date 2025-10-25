@@ -60,13 +60,42 @@ const Contact = () => {
           <h2>Get in Touch</h2>
           <p>Feel free to reach out to me. I’d love to discuss your project!</p>
           <p><strong>Email:</strong> sachinraj18sj@gmail.com</p>
-          <div className="social-links">
-            <a href="https://github.com/codersachin18" target="_blank" rel="noreferrer"><FaGithub /></a>
-            <a href="www.linkedin.com/in/sachin-jagtap-67a8b9333" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-            <a href="https://wa.me/917387574762" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
-            <a href="https://www.instagram.com/mariner_sachin_18k_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer"><FaInstagram /></a>
+
+
+      
+ <div className="social-links">
+              <a
+                href="https://github.com/codersachin18"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sachin-jagtap-67a8b9333/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://wa.me/917387574762"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaWhatsapp />
+              </a>
+              <a
+                href="https://www.instagram.com/mariner_sachin_18k_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram />
+              </a>
+            </div>
           </div>
-        </div>
+
+
         <div className="contact-right">
           <form>
             <input type="text" placeholder="Your Name" required />
