@@ -138,7 +138,7 @@ const Hero = () => {
 
           <div className="hero-buttons">
          <a href="#contact">    <button   className="btn primary">Hire Now</button></a>
-           <a href="/resume.pdf">  <button className="btn secondary">Get Resume</button></a>
+           <a href="/sachin jagtap.pdf">  <button className="btn secondary">Get Resume</button></a>
           </div>
         </div>
       </div>
