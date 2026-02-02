@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import "./ProjectShowcase.css";
-import project1 from "../assets/1.jpg";
-import project2 from "../assets/2.jpg";
+import project1 from "../assets/1.png";
+import project2 from "../assets/2.png";
 import project3 from "../assets/3.png";
 import project4 from "../assets/4.png";
-import project5 from "../assets/5.jpg";
-import project6 from "../assets/6.jpg";
+import project5 from "../assets/5.png";
+import project6 from "../assets/6.png";
 
 const ProjectShowcase = () => {
   const canvasRef = useRef(null);
@@ -59,39 +59,39 @@ const ProjectShowcase = () => {
  const projects = [
   {
     img: project1,
-    title: "Hudson Growth Agency",
-    desc: "Hudson Growth Agency — a modern, responsive website showcasing business growth strategies, marketing plans, and creative solutions developed by Sachin.",
-    link: "https://codersachin18.github.io/Hudson-Growth-Agency/",
+    title: "Nuri Pure",
+    desc: "Multi-vertical clean energy brand offering Solar Panels, EV Charging Stations, and Electric Scooters supporting India's transition to sustainable mobility.",
+    link: "https://nuripure.in/",
   },
   {
     img: project2,
-    title: "Neon byte Agency",
-    desc: "A Neon byte Website is a platform designed to showcase servises of web development,seo,etc",
-    link: "https://codersachin18.github.io/Neon-byte/",
+    title: "NRS Multi Bizz",
+    desc: "World-class solar solutions provider delivering premium panels, expert installation, and complete solar support across India.",
+    link: "https://nrsmultibizz.com/",
   },
   {
     img: project3,
-    title: "Nexora Studio",
-    desc: "A modern agency website built for Nexora Studio to showcase services, portfolio, and company details with a clean and responsive design.",
-    link: "https://codersachin18.github.io/Nexora-Studio/",
+    title: "Mixo Smart",
+    desc: "Specializes in designing and manufacturing high-performance industrial equipment for chemical, pharmaceutical, and specialty manufacturing units.",
+    link: "https://mixosmart.com/",
   },
   {
     img: project4,
-    title: "Healthy Hub",
-    desc: "A modern, responsive healthcare website built to showcase hospital services, doctors, and online appointment booking",
-    link: "https://codersachin18.github.io/health-care-web/",
+    title: "Genius Brain DMIT",
+    desc: "ISO 9001:2015 certified institute offering Dermatoglyphics Multiple Intelligence Test services for students, professionals, and parents.",
+    link: "https://dmitestfranchise.com/",
   },
   {
     img: project5,
-    title: "Coin Invest",
-    desc: "Coin Invest — a sleek and responsive investment website developed by Sachin, showcasing crypto insights, investment plans, and financial growth opportunities.",
-    link: "https://codersachin18.github.io/Coin-Invest/",
+    title: "Almaden Estates",
+    desc: "Leading real estate developer with over 20 years experience acquiring land and building high-quality homes across the United States.",
+    link: "https://almadenestates.com/",
   },
   {
     img: project6,
-    title: "Bella Berry ",
-    desc: "Bella Berry is a modern bakery website developed to showcasing elegant design, smooth functionality, and a delightful dessert experience online.",
-    link: "https://codersachin18.github.io/Bella-Berry/",
+    title: "Perfect Sunwin Solar",
+    desc: "Committed to sustainable energy with professional solar panel installation, tailored system design, and long-term maintenance support.",
+    link: "https://perfectsunwinsolar.com/",
   },
 ];
 

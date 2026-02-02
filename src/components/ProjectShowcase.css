@@ -75,7 +75,7 @@
 
 .project-img {
   width: 100%;
-  height: 450px;          /* slightly taller for better view */
+  height: 250px;          /* slightly taller for better view */
   object-fit: fill;      /* ensures full coverage without stretching */
   object-position: center; /* centers the image nicely */
   display: block;
