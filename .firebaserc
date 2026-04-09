@@ -1,6 +1,11 @@
 {
   "projects": {
+<<<<<<< Updated upstream
     "default": "codersachin18"
+=======
+    "default": "portfolio-c380f",
+    "production": "codersachin18s"
+>>>>>>> Stashed changes
   },
   "targets": {},
   "etags": {}

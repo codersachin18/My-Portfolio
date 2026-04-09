@@ -1,58 +1,61 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import "./WebSoftware.css";
 import dashboard from "../assets/b-dashboard.png";
 import wellEdu from "../assets/well-edu.png";
-import insta from "../assets/insta.png";
-import yt from "../assets/yt.png";
-import SplitText from "./SplitText";
-import BlurText from "./BlurText";
 
 const WebSoftware = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let w, h, particles;
+    const particleCount = 50;
+
+    const resize = () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    };
+    window.addEventListener("resize", resize);
+    resize();
+
+    const createParticles = () => {
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 3 + 1,
+          dx: (Math.random() - 0.5) * 0.8,
+          dy: (Math.random() - 0.5) * 0.8,
+        });
+      }
+    };
+    createParticles();
+
+    const animate = () => {
+      ctx.fillStyle = "rgba(10, 15, 40, 0.35)";
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#3b82f6";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(animate);
+    };
+    animate();
+  }, []);
+
   const softwares = [
-    {
-      img: insta,
-      title: "Instagram Reels & Post Downloader",
-      desc: "I built an Instagram Reels & Post downloader — a web tool that lets users download Instagram Reels, Stories & Posts instantly without any login. Powered by yt-dlp CLI + custom scraping logic on the backend, a clean React.js frontend, and a cloud backend running 24/7.",
-      features: [
-        "Download Reels, Stories & Posts",
-        "HD Quality Videos",
-        "No login required",
-        "Works instantly on web",
-      ],
-      tech: [
-        { name: "yt-dlp CLI", icon: "fas fa-terminal" },
-        { name: "Scraping Logic", icon: "fas fa-code" },
-        { name: "React.js", icon: "fab fa-react" },
-        { name: "REST API", icon: "fas fa-plug" },
-        { name: "Cloud Backend", icon: "fas fa-cloud" },
-        { name: "Node.js", icon: "fab fa-node-js" },
-      ],
-      note: null,
-      link: "https://instaa-saver.web.app/",
-      btnLabel: "Try Insta Saver",
-    },
-    {
-      img: yt,
-      title: "YouTube Analyzer",
-      label: "SaaS",
-      desc: "A clean, modern SaaS-style dashboard to analyze any YouTube channel instantly. Paste a competitor's URL and get real data — top videos, growth trends, engagement metrics, audience breakdown, and more. Channel Analysis, Dashboard Overview (subscribers, total views, avg video duration, engagement rate), Top Videos with sort/filter, Analytics Charts (30-day views & impressions), Audience Insights (top countries, age distribution, gender split, device breakdown), Quick Analytics for instant competitor intelligence, Export reports, Dark Mode & Mobile Responsive.",
-      tech: [
-        { name: "Next.js 16", icon: "fab fa-react" },
-        { name: "TypeScript", icon: "fas fa-code" },
-        { name: "Tailwind CSS v4", icon: "fas fa-paint-brush" },
-        { name: "Recharts", icon: "fas fa-chart-line" },
-        { name: "YouTube Data API v3", icon: "fab fa-youtube" },
-        { name: "Vercel", icon: "fas fa-cloud" },
-      ],
-      note: null,
-      link: "https://analytics-dashboard-8.vercel.app/",
-      btnLabel: "Visit Dashboard",
-    },
     {
       img: dashboard,
       title: "Branch Management Dashboard",
-      label: "SaaS",
       desc: "A comprehensive custom-built SaaS dashboard for multi-branch management. Features include adding new branches, tracking monthly collections, profit/loss analysis, interactive charts, and complete analytics. The system provides real-time insights into branch performance, student enrollment tracking, payment management, and automated reporting. Built with a clean, intuitive interface for seamless branch operations and data-driven decision making.",
       tech: [
         { name: "PHP", icon: "fab fa-php" },
@@ -82,28 +85,22 @@ const WebSoftware = () => {
 
   return (
     <section id="web-software" className="web-software-section">
+      <canvas ref={canvasRef} className="bg-canvas"></canvas>
+      <div className="overlay"></div>
       <div className="web-software-container">
-        <div className="section-header">
-          <SplitText
-            text="Web-Based Software"
-            tag="h2"
-            className="section-title"
-            delay={60}
-            duration={1.2}
-            ease="power3.out"
-            splitType="chars"
-            from={{ opacity: 0, y: 40 }}
-            to={{ opacity: 1, y: 0 }}
-            textAlign="center"
-          />
-          <BlurText
-            text="Custom web-based systems built to meet specific project needs"
-            delay={80}
-            animateBy="words"
-            direction="top"
-            className="section-subtitle"
-          />
-        </div>
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title">
+            Web-Based <span>Software</span>
+          </h2>
+          <p className="section-subtitle">
+            Custom web-based systems built to meet specific project needs
+          </p>
+        </motion.div>
 
         <div className="software-grid">
           {softwares.map((software, index) => (
@@ -115,27 +112,13 @@ const WebSoftware = () => {
               transition={{ delay: index * 0.2 }}
             >
               <div className="software-image">
-                {software.label && (
-                  <span className="software-label">{software.label}</span>
-                )}
                 <img src={software.img} alt={software.title} />
               </div>
-              
+
               <div className="software-content">
                 <h3 className="software-title">{software.title}</h3>
                 <p className="software-desc">{software.desc}</p>
-                
-                {software.features && (
-                  <ul className="software-features">
-                    {software.features.map((f, i) => (
-                      <li key={i}>
-                        <i className="fas fa-check-circle"></i>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                
+
                 <div className="tech-stack">
                   <h4>Built Using:</h4>
                   <div className="tech-tags">
@@ -147,7 +130,7 @@ const WebSoftware = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 {software.note && (
                   <div className="software-note">
                     <i className="fas fa-info-circle"></i>
@@ -163,7 +146,7 @@ const WebSoftware = () => {
                     className="software-btn"
                   >
                     <i className="fas fa-external-link-alt"></i>
-                    {software.btnLabel || "Visit Platform"}
+                    Visit Platform
                   </a>
                 )}
               </div>

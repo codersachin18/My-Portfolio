@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
-import SplitText from "./SplitText";
-import BlurText from "./BlurText";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -25,23 +23,8 @@ const Contact = () => {
       <section id="contact" className="contact-section">
         <div className="contact-container">
           <div className="contact-left">
-            <SplitText
-              text="Get in Touch"
-              tag="h2"
-              delay={60}
-              duration={1.2}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              textAlign="left"
-            />
-            <BlurText
-              text="Feel free to reach out to me. I'd love to discuss your project!"
-              delay={80}
-              animateBy="words"
-              direction="top"
-            />
+            <h2>Get in Touch</h2>
+            <p>Feel free to reach out to me. I'd love to discuss your project!</p>
             <p><strong>Email:</strong> sachinraj18sj@gmail.com</p>
             <div className="social-links">
               <a href="https://github.com/codersachin18" target="_blank" rel="noreferrer"><FaGithub /></a>
@@ -50,7 +33,6 @@ const Contact = () => {
               <a href="https://www.instagram.com/mariner_sachin_18k_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer"><FaInstagram /></a>
             </div>
           </div>
-
           <div className="contact-right">
             <form onSubmit={handleSubmit}>
               <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleInputChange} required />

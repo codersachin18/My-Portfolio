@@ -2,7 +2,6 @@ import React from "react";
 import { FaPhp, FaNodeJs } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiFlutter, SiTypescript, SiTailwindcss } from "react-icons/si";
 import { MdPhoneAndroid, MdWeb } from "react-icons/md";
-import SplitText from "./SplitText";
 
 const skillsData = [
   { icon: <SiReact size={40} color="#61DAFB" />, title: "React Native" },
@@ -21,22 +20,9 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section">
       <div className="solutions-heading">
-        <SplitText
-          text="My Skills"
-          tag="h2"
-          className="typing-heading"
-          delay={60}
-          duration={1.2}
-          ease="power3.out"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          textAlign="center"
-        />
+        <h2 className="typing-heading">My Skills</h2>
       </div>
-      
       <div className="skills-wrapper">
-         
         {skillsData.map((skill, index) => (
           <div className="skill-card" key={index}>
             {skill.icon}
