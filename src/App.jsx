@@ -11,7 +11,7 @@ import SmokeyCursor from "./components/lightswind/smokey-cursor";
 import "./components/style.css";
 function App() {
   return (
-    <div>
+    <div style={{ background: "#0a0f28", minHeight: "100vh" }}>
       <Navbar />
       <Hero />
       <Skills />

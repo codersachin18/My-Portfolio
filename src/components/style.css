@@ -483,15 +483,8 @@ nav a:hover {
 .skills-section {
   position: relative;
   padding: 5rem 2rem;
-  background: transparent;
+  background: #0a0f28;
   overflow: hidden;
-}
-
-.skills-section canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
 }
 .cardmove{
   display: none;
@@ -887,7 +880,7 @@ nav a:hover {
 .contact-section {
   position: relative;
   padding: 80px 20px;
-  background: transparent; /* dark navy */
+  background: #0a0f28;
   color: #fff;
   overflow: hidden;
 }

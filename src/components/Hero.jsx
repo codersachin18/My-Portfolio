@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import profileImg from "../assets/IMG_20250928_163404.png";
-import { FaShoppingCart, FaHtml5, FaJs, FaPhp, FaSearch, FaServer, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiReact, SiNextdotjs } from "react-icons/si";
-
-
+import { FaWordpress, FaHtml5, FaJs, FaPhp, FaSearch, FaServer } from "react-icons/fa";
 
 const Hero = () => {
   useEffect(() => {
-    // Floating tags random positions
     const tags = document.querySelectorAll(".floating-tags span");
     tags.forEach(tag => {
       const x = Math.random() * window.innerWidth * 0.8;
@@ -19,10 +15,9 @@ const Hero = () => {
 
   return (
     <section className="hero">
-
       <div className="hero-content-wrapper">
         <div className="hero-right">
-     <img src={profileImg} alt="Profile" />
+          <img src={profileImg} alt="Profile" />
         </div>
 
         <div className="hero-left">
@@ -30,48 +25,37 @@ const Hero = () => {
             Hello, I'm <span className="name">Sachin Jagtap</span>
           </h1>
           <p className="hero-desc">
-            App & Web Developer focused on building modern applications and custom software solutions.
+            I create stunning websites and interactive web experiences that captivate users and elevate brands.
           </p>
 
-  
- 
-<section className="hero-cards">
-  <div className="cards-wrapper">
-    <div className="card">
-      <SiReact size={30} />
-      <span className="card-text">React Native</span>
-    </div>
-
-    <div className="card">
-      <SiNextdotjs size={30} />
-      <span className="card-text">Next JS & React JS</span>
-    </div>
-
-    <div className="card">
-      <FaPhp size={30} />
-      <span className="card-text">PHP & MySQL</span>
-    </div>
-
-    <div className="card">
-      <FaNodeJs size={30} />
-      <span className="card-text">Node.js + Express</span>
-    </div>
-
-    <div className="card"  >
-      <FaServer size={30} />
-      <span className="card-text">Domain & Hosting Manage</span>
-    </div>
-    <div className="card cardmove "  >
-      <FaShoppingCart size={30} />   
-      <span className="card-text">E-Commerce Websites</span>
-    </div>
-  </div>
-</section>
-
+          <section className="hero-cards">
+            <div className="cards-wrapper">
+              <div className="card">
+                <FaWordpress size={30} />
+                <span className="card-text">WordPress</span>
+              </div>
+              <div className="card">
+                <FaHtml5 size={30} />
+                <span className="card-text">HTML, CSS, JavaScript</span>
+              </div>
+              <div className="card">
+                <FaPhp size={30} />
+                <span className="card-text">PHP & MySQL</span>
+              </div>
+              <div className="card">
+                <FaSearch size={30} />
+                <span className="card-text">SEO & Google Analytics</span>
+              </div>
+              <div className="card">
+                <FaServer size={30} />
+                <span className="card-text">Domain & Hosting Manage</span>
+              </div>
+            </div>
+          </section>
 
           <div className="hero-buttons">
-         <a href="#contact">    <button   className="btn primary">Hire Now</button></a>
-           <a href="/sachin.j.pdf" target="_blank" rel="noopener noreferrer">  <button className="btn secondary">Get Resume</button></a>
+            <a href="#contact"><button className="btn primary">Hire Now</button></a>
+            <a href="/sachin jagtap.wp.pdf" target="_blank" rel="noopener noreferrer"><button className="btn secondary">Get Resume</button></a>
           </div>
         </div>
       </div>
@@ -80,11 +64,11 @@ const Hero = () => {
         <span>HTML</span>
         <span>CSS</span>
         <span>JavaScript</span>
-        <span>React</span>
-        <span>Node.js</span>
-        <span>Portfolio</span>
+        <span>WordPress</span>
+        <span>PHP</span>
+        <span>SEO</span>
         <span>UI/UX</span>
-        <span>Web3</span>
+        <span>Web Dev</span>
       </div>
     </section>
   );

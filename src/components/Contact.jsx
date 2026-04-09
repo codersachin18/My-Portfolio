@@ -1,8 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 const Contact = () => {
+  const canvasRef = useRef(null);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let w, h, particles;
+
+    const resize = () => {
+      w = canvas.width = canvas.offsetWidth;
+      h = canvas.height = canvas.offsetHeight;
+    };
+    window.addEventListener("resize", resize);
+    resize();
+
+    particles = Array.from({ length: 50 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 3 + 1,
+      dx: (Math.random() - 0.5) * 0.8,
+      dy: (Math.random() - 0.5) * 0.8,
+    }));
+
+    const animate = () => {
+      ctx.fillStyle = "rgba(10, 15, 40, 0.35)";
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = "#3b82f6";
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+      });
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => window.removeEventListener("resize", resize);
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +62,9 @@ const Contact = () => {
   return (
     <>
       <section id="contact" className="contact-section">
-        <div className="contact-container">
+        <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.55)", zIndex: 1 }} />
+        <div className="contact-container" style={{ position: "relative", zIndex: 2 }}>
           <div className="contact-left">
             <h2>Get in Touch</h2>
             <p>Feel free to reach out to me. I'd love to discuss your project!</p>
