@@ -1,156 +1,61 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import SplitText from "./SplitText";
+import BlurText from "./BlurText";
 
 const Contact = () => {
-  const canvasRef = useRef(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     if (formData.name && formData.email && formData.message) {
       const whatsappMessage = `Hello! I'm ${formData.name}\nEmail: ${formData.email}\n\nMessage: ${formData.message}`;
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappUrl = `https://wa.me/917387574762?text=${encodedMessage}`;
-      
-      window.open(whatsappUrl, "_blank");
-      
-      // Reset form
+      window.open(`https://wa.me/917387574762?text=${encodeURIComponent(whatsappMessage)}`, "_blank");
       setFormData({ name: "", email: "", message: "" });
     }
   };
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = (Math.random() - 0.5) * 1;
-        this.speedY = (Math.random() - 0.5) * 1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-      draw() {
-        ctx.fillStyle = "rgba(8, 27, 34, 0.6)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    const particles = [];
-    for (let i = 0; i < 50; i++) particles.push(new Particle());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  }, []);
-
   return (
     <>
       <section id="contact" className="contact-section">
-        <canvas ref={canvasRef}></canvas>
         <div className="contact-container">
           <div className="contact-left">
-            <h2>Get in Touch</h2>
-            <p>
-              Feel free to reach out to me. I’d love to discuss your project!
-            </p>
-            <p>
-              <strong>Email:</strong> sachinraj18sj@gmail.com
-            </p>
-
+            <SplitText
+              text="Get in Touch"
+              tag="h2"
+              delay={60}
+              duration={1.2}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              textAlign="left"
+            />
+            <BlurText
+              text="Feel free to reach out to me. I'd love to discuss your project!"
+              delay={80}
+              animateBy="words"
+              direction="top"
+            />
+            <p><strong>Email:</strong> sachinraj18sj@gmail.com</p>
             <div className="social-links">
-              <a
-                href="https://github.com/codersachin18"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/sachin-jagtap-67a8b9333/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://wa.me/917387574762"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="https://www.instagram.com/mariner_sachin_18k_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FaInstagram />
-              </a>
+              <a href="https://github.com/codersachin18" target="_blank" rel="noreferrer"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/sachin-jagtap-67a8b9333/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+              <a href="https://wa.me/917387574762" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
+              <a href="https://www.instagram.com/mariner_sachin_18k_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer"><FaInstagram /></a>
             </div>
           </div>
 
           <div className="contact-right">
             <form onSubmit={handleSubmit}>
-              <input 
-                type="text" 
-                name="name"
-                placeholder="Your Name" 
-                value={formData.name}
-                onChange={handleInputChange}
-                required 
-              />
-              <input 
-                type="email" 
-                name="email"
-                placeholder="Your Email" 
-                value={formData.email}
-                onChange={handleInputChange}
-                required 
-              />
-              <textarea 
-                name="message"
-                placeholder="Your Message" 
-                rows="5" 
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              ></textarea>
+              <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleInputChange} required />
+              <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleInputChange} required />
+              <textarea name="message" placeholder="Your Message" rows="5" value={formData.message} onChange={handleInputChange} required></textarea>
               <button type="submit">Send via WhatsApp</button>
             </form>
           </div>

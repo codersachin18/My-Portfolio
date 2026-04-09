@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
-  FaCode,
-  FaShoppingCart,
-  FaSearch,
-  FaServer,
-  FaGoogle,
-  FaWordpress,
-  FaPencilRuler,
-  FaLaptopCode,
+  FaCode, FaShoppingCart, FaSearch, FaServer,
+  FaGoogle, FaWordpress, FaPencilRuler, FaLaptopCode,
 } from "react-icons/fa";
+import SplitText from "./SplitText";
+import BlurText from "./BlurText";
 
 const solutionsData = [
   {
@@ -58,66 +54,29 @@ const solutionsData = [
 
 
 const Solutions = () => {
-  useEffect(() => {
-    // Canvas Background Animation (different design: particles)
-    const canvas = document.getElementById("solutions-bg");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 3 + 1;
-        this.dx = (Math.random() - 0.5) * 1.5;
-        this.dy = (Math.random() - 0.5) * 1.5;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        ctx.fillStyle = "rgba(86,204,242,0.7)";
-        ctx.fill();
-      }
-      update() {
-        this.x += this.dx;
-        this.y += this.dy;
-        if (this.x < 0 || this.x > canvas.width) this.dx = -this.dx;
-        if (this.y < 0 || this.y > canvas.height) this.dy = -this.dy;
-        this.draw();
-      }
-    }
-
-    const particles = [];
-    for (let i = 0; i < 60; i++) particles.push(new Particle());
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => p.update());
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  
-
   return (
     <section id="Solutions" className="solutions-section">
-      <canvas id="solutions-bg"></canvas>
       <div className="solutions-heading">
-  <h2 className="typing-heading">My Solutions</h2>
-  <p className="sub-heading">
-    I help businesses and individuals build modern websites, custom web tools, and
-    digital strategies that drive real growth.
-  </p>
-</div>
+        <SplitText
+          text="My Solutions"
+          tag="h2"
+          className="typing-heading"
+          delay={60}
+          duration={1.2}
+          ease="power3.out"
+          splitType="chars"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          textAlign="center"
+        />
+        <BlurText
+          text="I help businesses and individuals build modern websites, custom web tools, and digital strategies that drive real growth."
+          delay={80}
+          animateBy="words"
+          direction="top"
+          className="sub-heading"
+        />
+      </div>
 
 
      

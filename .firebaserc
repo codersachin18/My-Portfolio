@@ -1,7 +1,6 @@
 {
   "projects": {
-    "default": "portfolio-c380f",
-    "production": "codersachin18"
+    "default": "codersachin18"
   },
   "targets": {},
   "etags": {}
